@@ -5,7 +5,7 @@ const cors = require('cors')
 const path = require('path')
 const socketio = require('socket.io')
 const http = require('http')
-const routes = require('./routes')
+const routes = require('./src/routes')
 
 const app = express()
 const server = http.Server(app)
