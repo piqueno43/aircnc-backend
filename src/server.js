@@ -12,7 +12,8 @@ const server = http.Server(app)
 const io = socketio(server)
 
 const port = process.env.PORT || 3333
-const uriLocal = process.env.MONGODB || 'mongodb+srv://edivaldosilva:asd085456255669@omnistack-ko67z.mongodb.net/semana09?retryWrites=true&w=majority'
+const uriLocal = process.env.MONGODB || 'mongodb://localhost/aircnc'
+// const uri = 'mongodb+srv://edivaldosilva:asd085456255669@omnistack-ko67z.mongodb.net/semana09?retryWrites=true&w=majority'
 mongoose.connect(
   uriLocal,
   { useNewUrlParser: true, useUnifiedTopology: true }
