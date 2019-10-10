@@ -8,6 +8,9 @@ const http = require('http')
 const routes = require('./src/routes')
 
 const app = express()
+
+app.set('port', process.env.PORT || 3333)
+
 const server = http.Server(app)
 const io = socketio(server)
 
