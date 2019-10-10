@@ -1,28 +1,20 @@
+require('dotenv/config')
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const path = require('path')
 const socketio = require('socket.io')
 const http = require('http')
-
 const routes = require('./routes')
 
 const app = express()
 const server = http.Server(app)
 const io = socketio(server)
 
-const port = process.env.PORT || 3333
-const uriLocal = process.env.MONGODB || 'mongodb://localhost/aircnc'
-// const uri = 'mongodb+srv://edivaldosilva:asd085456255669@omnistack-ko67z.mongodb.net/semana09?retryWrites=true&w=majority'
 mongoose.connect(
-  uriLocal,
+  process.env.MONGO_DB,
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
-
-// mongoose.connect(
-//   uriLocal,
-//   { useNewUrlParser: true, useUnifiedTopology: true }
-// )
 
 const connectedUsers = {}
 
@@ -50,4 +42,4 @@ app.use(express.json())
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')))
 app.use(routes)
 
-server.listen(port)
+server.listen(process.env.PORT)
