@@ -17,7 +17,7 @@ const server = http.Server(app)
 const io = socketio(server)
 
 mongoose.connect(
-  'mongodb+srv://edivaldosilva:asd085456255669@omnistack-ko67z.mongodb.net/aircnc?retryWrites=true&w=majority',
+  `${process.env.MONGO_DB}`,
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
 
