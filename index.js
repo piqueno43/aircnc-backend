@@ -17,7 +17,7 @@ const server = http.Server(app)
 const io = socketio(server)
 
 mongoose.connect(
-  `${process.env.MONGO_DB}`,
+  process.env.MONGODB_URL.toString(),
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
 
